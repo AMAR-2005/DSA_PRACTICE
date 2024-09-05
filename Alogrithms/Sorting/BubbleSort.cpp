@@ -1,4 +1,4 @@
-//Time Complexity: O(N2)
+//Time Complexity: O(N^2)
 /*
 Advantages of Bubble Sort:
     Bubble sort is easy to understand and implement.

@@ -1,4 +1,4 @@
-//Time Complexity: The time complexity of Selection Sort is O(N2)
+//Time Complexity: The time complexity of Selection Sort is O(N^2)
 
 /*Advantages of Selection Sort Algorithm:
     Simple and easy to understand.
