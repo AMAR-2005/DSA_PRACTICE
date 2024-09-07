@@ -30,6 +30,6 @@ void search(string& pat, string& txt) {
 // Driver's Code
 int main() {
     string pat,txt;
-    cin >> pat >> txt;
+    cin>> txt>>pat;
     search(pat, txt);
 }
