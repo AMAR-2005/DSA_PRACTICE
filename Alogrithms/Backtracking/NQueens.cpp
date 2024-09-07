@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 using namespace std;
-void printSolution(vector<vector<int>>& board) {
+void printSolution(vector<vector<int> >& board) {
     int n = board.size();
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++)
@@ -13,7 +13,7 @@ void printSolution(vector<vector<int>>& board) {
     }
 }
 
-bool isSafe(vector<vector<int>>& board, 
+bool isSafe(vector<vector<int> >& board, 
                     int row, int col) {
     int n = board.size();
     int i, j;
@@ -31,7 +31,7 @@ bool isSafe(vector<vector<int>>& board,
     return true;
 }
 
-bool solveNQUtil(vector<vector<int>>& board, int col) {
+bool solveNQUtil(vector<vector<int> >& board, int col) {
     int n = board.size();
     
     if (col >= n)
@@ -54,7 +54,7 @@ bool solveNQUtil(vector<vector<int>>& board, int col) {
 }
 
 bool solveNQ(int n) {
-    vector<vector<int>> board(n, vector<int>(n, 0));
+    vector<vector<int> > board(n, vector<int>(n, 0));
 
     if (solveNQUtil(board, 0) == false) {
         cout << "Solution does not exist";
