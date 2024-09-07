@@ -28,50 +28,45 @@ Slower than QuickSort in general. QuickSort is more cache friendly because it wo
 */
 // You are using GCC
 #include<iostream>
-#include<vector>
 using namespace std;
-void merge(vector<int>&a,int l,int m,int h){
-    vector<int>temp;
-    int lf=l;
-    int ri=m+1;
-    while(lf<=m && ri<=h){
-        if(a[lf]<=a[ri]){
-            temp.push_back(a[lf]);
-            lf++;
+void merge(int leftArr[],int leftLength,int rightArr[],int rightLength,int arr[]){
+    int i=0,l=0,r=0;
+    while(l<leftLength && r<rightLength){
+        if(leftArr[l]<rightArr[r]){
+            arr[i++]=leftArr[l++];
         }
         else{
-            temp.push_back(a[ri]);
-            ri++;
+            arr[i++]=rightArr[r++];
         }
     }
-    while(lf<=m){
-            temp.push_back(a[lf]);
-            lf++;
+    while(l<leftLength){
+        arr[i++]=leftArr[l++];
     }
-    while(ri<=h){
-            temp.push_back(a[ri]);
-            ri++;
-    }
-    for(int i=l;i<=h;i++){
-        a[i]=temp[i-l];
+    while(r<rightLength){
+        arr[i++]=rightArr[r++];
     }
 }
-void mergeS(vector<int>&a,int l,int h){
-    if(l>=h)
-    return;
-    int mid=(l+h)/2;
-    mergeS(a,l,mid);
-    mergeS(a,mid+1,h);
-    merge(a,l,mid,h);
+void mergeSort(int arr[],int len){
+    if(len<=1)return;
+    int mid=len/2;
+    int leftArr[mid];
+    int rightArr[len-mid];
+    for (int i = 0; i < mid; i++) {
+        leftArr[i] = arr[i];
+    }
+    for (int i = mid; i < len; i++) {
+        rightArr[i - mid] = arr[i];
+    }
+    mergeSort(leftArr,mid);
+    mergeSort(rightArr,len-mid);
+    merge(leftArr,mid,rightArr,len-mid,arr);
 }
 int main(){
-    int n;
-    cin>>n;
-    vector<int>a(n);
-    for(int i=0;i<n;i++)
-    cin>>a[i];
-    mergeS(a,0,n-1);
-    for(int i=0;i<n;i++){
-        cout<<a[i]<<" ";
+    int arr[]={8,5,2,1,7,6,3,4};
+    int len=sizeof(arr)/sizeof(arr[0]);
+    mergeSort(arr,len);
+    for(int i=0;i<len;i++){
+        cout<<arr[i]<<" ";
     }
+    return 0;
 }
