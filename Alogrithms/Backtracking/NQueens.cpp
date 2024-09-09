@@ -6,15 +6,14 @@ void printSolution(vector<vector<int> >& board) {
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++)
             if(board[i][j])
-                cout << "Q ";
+                cout <<"Q ";
             else
-                cout << ". ";
+                cout <<". ";
         cout << "\n";
     }
 }
 
-bool isSafe(vector<vector<int> >& board, 
-                    int row, int col) {
+bool isSafe(vector<vector<int> >& board, int row, int col) {
     int n = board.size();
     int i, j;
     for (i = 0; i < col; i++)
@@ -46,15 +45,15 @@ bool solveNQUtil(vector<vector<int> >& board, int col) {
             if (solveNQUtil(board, col + 1))
                 return true;
 
-            board[i][col] = 0; // BACKTRACK
+            board[i][col] = 0; 
         }
     }
-    
+
     return false;
 }
 
 bool solveNQ(int n) {
-    vector<vector<int> > board(n, vector<int>(n, 0));
+    vector<vector<int> >board(n, vector<int>(n, 0));
 
     if (solveNQUtil(board, 0) == false) {
         cout << "Solution does not exist";
