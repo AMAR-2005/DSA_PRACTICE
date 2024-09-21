@@ -9,11 +9,11 @@ int knapsack(int W,int wt[],int v[],int n)
             if(i == 0 || w == 0){
                 dp[i][w] = 0;
             }
-            else if(w < wt[i-1]){
-                dp[i][w] = dp[i-1][w];
+            else if(wt[i-1] <= w){
+                dp[i][w] = max(dp[i-1][w],v[i-1]+dp[i-1][w-wt[i-1]]);
             }
             else{
-                dp[i][w] = max(dp[i-1][w],v[i-1]+dp[i-1][w-wt[i-1]]);
+                dp[i][w] = dp[i-1][w];
             }
         }
         
