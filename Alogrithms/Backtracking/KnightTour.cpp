@@ -24,7 +24,7 @@ int knightTour(int **sol, int x, int y, int num, int xMove[], int yMove[],int n)
                 return 1;
             }
             else{
-                sol[Xnext][Ynext] = -1;
+                sol[Xnext][Ynext] = -1;//backtracking
             }
         }
     }
