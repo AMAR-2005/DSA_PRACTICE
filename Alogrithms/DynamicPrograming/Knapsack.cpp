@@ -1,7 +1,6 @@
-// You are using GCC
 #include<iostream>
 using namespace std;
-int knapsack(int W,int wt[],int v[],int n)
+int knapsack(int W,int wt[ ],int v[ ],int n)
 {
     int dp[n+1][W+1];
     for(int i = 0 ; i <= n ; i++){
